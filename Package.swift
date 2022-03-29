@@ -12,7 +12,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "git@github.com:janodevorg/Report.git", branch: "main"),
-        .package(url: "git@github.com:apple/swift-docc-plugin.git", branch: "main")
+        .package(url: "git@github.com:apple/swift-docc-plugin.git", from: "1.0.0")
     ],
     targets: [
         .target(
