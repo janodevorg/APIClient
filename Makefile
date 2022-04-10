@@ -18,7 +18,7 @@ help: requirebrew requirexcodegen
 	@echo "  make project     - generates a xcode project with local dependencies"
 	@echo "  make projecttest - Run tests using xcodebuild and a generated project"
 	@echo "  make spmcache    - Remove SPM cache"
-	@echo "  make swiftbuild  - compile package using swift build"
+	@echo "  make simbuild    - compile package using swift build"
 	@echo "  make swiftlint   - Run swiftlint"
 	@echo "  make swifttest   - test package using swift test"
 	@echo ""
@@ -62,7 +62,7 @@ doccapp: requirejq
 swiftlint:
 	swift run swiftlint
 
-swiftbuild: 
+simbuild: 
 	@if [ ! -f Package.swift ]; then echo "You tried to compile as package but Package.swift doesn’t exist." >&2; exit 1; fi
 	swift build -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios15.4-simulator" 
 
