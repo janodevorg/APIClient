@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.8
 import PackageDescription
 
 let package = Package(
@@ -10,8 +10,7 @@ let package = Package(
         .tvOS(.v15)
     ],
     products: [
-        .library(name: "APIClient", type: .static, targets: ["APIClient"]),
-        .library(name: "APIClientDynamic", type: .dynamic, targets: ["APIClient"])
+        .library(name: "APIClient", targets: ["APIClient"])
     ],
     dependencies: [
         .package(url: "git@github.com:janodevorg/Report.git", from: "1.0.0"),
@@ -21,7 +20,7 @@ let package = Package(
         .target(
             name: "APIClient",
             dependencies: [
-                .product(name: "ReportDynamic", package: "Report")
+                .product(name: "Report", package: "Report")
             ],
             path: "sources/main"
         ),
